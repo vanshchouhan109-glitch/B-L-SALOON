@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | Brown Luxury Pedicure</title>
+  <meta name="description" content="Explore Brown Luxury Pedicure's full service menu — from luxury spa pedicures to medical foot care and gel polish in Berkel en Rodenrijs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Service Cards ─── */
+    .svc-full-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .svc-full-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 44px 36px;
+      box-shadow: var(--shadow);
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+      transition: var(--transition);
+      border-left: 4px solid transparent;
+    }
+
+    .svc-full-card:hover {
+      border-left-color: var(--gold);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .svc-full-icon {
+      width: 68px;
+      height: 68px;
+      min-width: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--beige), var(--blush));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--gold);
+      transition: var(--transition);
+    }
+
+    .svc-full-card:hover .svc-full-icon {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .svc-full-body h3 { font-size: 1.5rem; margin-bottom: 10px; }
+    .svc-full-body p { color: var(--muted); font-size: 0.9rem; margin-bottom: 14px; }
+
+    .svc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: var(--beige);
+      color: var(--muted);
+    }
+
+    .tag.gold { background: rgba(197,160,89,0.12); color: var(--gold-dark); }
+
+    /* ── Signature Treatment ─── */
+    .signature-treatment {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sig-img {
+      height: 100%;
+      min-height: 400px;
+      object-fit: cover;
+    }
+
+    .sig-content {
+      background: var(--dark);
+      padding: 60px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .sig-content .label { color: var(--gold-light); }
+    .sig-content h2 { color: var(--white); margin-bottom: 20px; }
+    .sig-content p { color: #aaa; font-size: 0.9rem; margin-bottom: 14px; }
+
+    .sig-steps {
+      margin: 24px 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sig-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #bbb;
+      font-size: 0.88rem;
+    }
+
+    .sig-step-num {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      border-radius: 50%;
+      background: rgba(197,160,89,0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* ── Hygiene Banner ─── */
+    .hygiene-banner {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      border-radius: var(--radius);
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hygiene-banner h2 { color: var(--white); margin-bottom: 16px; }
+    .hygiene-banner p { color: rgba(255,255,255,0.85); font-size: 0.92rem; }
+
+    .hygiene-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hygiene-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--white);
+      font-size: 0.9rem;
+    }
+
+    .hygiene-item i {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      width: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .svc-full-grid { grid-template-columns: 1fr; }
+      .signature-treatment { grid-template-columns: 1fr; }
+      .sig-img { min-height: 280px; width: 100%; }
+      .hygiene-banner { grid-template-columns: 1fr; padding: 40px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar solid" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="logo-main">Brown Luxury</span><span class="logo-sub">Pedicure · Berkel en Rodenrijs</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html#book" class="btn btn-primary">Book Now</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="drawer-overlay"></div>
+<aside class="mobile-drawer">
+  <button class="drawer-close"><i class="fas fa-times"></i></button>
+  <a href="index.html" class="logo"><span class="logo-main" style="color:var(--dark)">Brown Luxury</span><span class="logo-sub">Pedicure</span></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html#book" class="btn btn-primary">Book Appointment</a>
+</aside>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="background-image:url('https://i.ibb.co/gM0XyRDp/img-tools.jpg')">
+  <div class="page-hero-content">
+    <span class="label">Our Treatments</span>
+    <h1>Luxury Services Menu</h1>
+  </div>
+</div>
+
+<!-- SIGNATURE TREATMENT -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Featured</span>
+      <h2 class="section-title">Our Signature Experience</h2>
+    </div>
+    <div class="signature-treatment reveal">
+      <img class="sig-img" src="https://i.ibb.co/0jpDyjK1/img-soak.jpg" alt="Luxury Spa Pedicure Treatment">
+      <div class="sig-content">
+        <span class="label">Brown Luxury Signature</span>
+        <h2>The Complete Luxury Spa Pedicure</h2>
+        <p>Our flagship treatment — a fully immersive, two-hour foot care ritual designed to restore, beautify, and deeply relax.</p>
+        <div class="sig-steps">
+          <div class="sig-step"><span class="sig-step-num">1</span> Soothing herbal foot bath & soak</div>
+          <div class="sig-step"><span class="sig-step-num">2</span> Cuticle care & nail shaping</div>
+          <div class="sig-step"><span class="sig-step-num">3</span> Callus & hard skin removal</div>
+          <div class="sig-step"><span class="sig-step-num">4</span> Sugar scrub exfoliation</div>
+          <div class="sig-step"><span class="sig-step-num">5</span> Hydrating foot mask application</div>
+          <div class="sig-step"><span class="sig-step-num">6</span> Relaxing foot & lower-leg massage</div>
+          <div class="sig-step"><span class="sig-step-num">7</span> Polish or gel finish of your choice</div>
+        </div>
+        <a href="contact.html#book" class="btn btn-primary">Book This Treatment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL SERVICES -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Full Menu</span>
+      <h2 class="section-title">All Treatments</h2>
+      <p class="section-lead">Every service is delivered with the same precision, warmth, and meticulous hygiene that defines Brown Luxury.</p>
+      <div class="divider"><span></span><i class="fas fa-spa"></i><span></span></div>
+    </div>
+    <div class="svc-full-grid">
+      <div class="svc-full-card reveal">
+        <div class="svc-full-icon"><i class="fas fa-spa"></i></div>
+        <div class="svc-full-body">
+          <h3>Luxury Spa Pedicure</h3>
+          <p>Our signature full treatment including foot bath, nail & cuticle care, callus removal, exfoliation, mask, massage, and polish.</p>
+          <div class="svc-tags"><span class="tag gold">Signature</span><span class="tag">~2 hrs</span><span class="tag">Most Popular</span></div>
+        </div>
+      </div>
+      <div class="svc-full-card reveal delay-1">
+        <div class="svc-full-icon"><i class="fas fa-user-md"></i></div>
+        <div class="svc-full-body">
+          <h3>Medical Pedicure</h3>
+          <p>Specialist treatment for ingrown nails, corns, severe calluses, and other conditions using medical-grade sterile instruments.</p>
+          <div class="svc-tags"><span class="tag gold">Medical</span><span class="tag">~60–90 min</span></div>
+        </div>
+      </div>
+      <div class="svc-full-card reveal">
+        <div class="svc-full-icon"><i class="fas fa-magic"></i></div>
+        <div class="svc-full-body">
+          <h3>Gel Polish</h3>
+          <p>Long-lasting chip-resistant gel colour from a wide premium range. Includes base coat, colour, and top coat for weeks of perfection.</p>
+          <div class="svc-tags"><span class="tag">~45 min</span><span class="tag">Add-on available</span></div>
+        </div>
+      </div>
+      <div class="svc-full-card reveal delay-1">
+        <div class="svc-full-icon"><i class="fas fa-hands"></i></div>
+        <div class="svc-full-body">
+          <h3>Foot Massage & Reflexology</h3>
+          <p>A deeply restorative session targeting pressure points to improve circulation, reduce stress, and promote overall wellbeing.</p>
+          <div class="svc-tags"><span class="tag">~45 min</span><span class="tag">Wellness</span></div>
+        </div>
+      </div>
+      <div class="svc-full-card reveal">
+        <div class="svc-full-icon"><i class="fas fa-leaf"></i></div>
+        <div class="svc-full-body">
+          <h3>Exfoliation & Hydration Mask</h3>
+          <p>Gentle sugar scrub exfoliation followed by a deeply nourishing foot mask, leaving skin baby-soft and radiant.</p>
+          <div class="svc-tags"><span class="tag">~30 min</span><span class="tag">Add-on available</span></div>
+        </div>
+      </div>
+      <div class="svc-full-card reveal delay-1">
+        <div class="svc-full-icon"><i class="fas fa-eraser"></i></div>
+        <div class="svc-full-body">
+          <h3>Polish & Gel Removal</h3>
+          <p>Safe and gentle removal of existing polish or gel, followed by a nourishing nail plate and cuticle care treatment.</p>
+          <div class="svc-tags"><span class="tag">~20 min</span></div>
+        </div>
+      </div>
+      <div class="svc-full-card reveal">
+        <div class="svc-full-icon"><i class="fas fa-tint"></i></div>
+        <div class="svc-full-body">
+          <h3>Nail & Cuticle Treatment</h3>
+          <p>A targeted maintenance treatment for nail shaping, cuticle care, and nail plate conditioning — without full polish.</p>
+          <div class="svc-tags"><span class="tag">~30 min</span><span class="tag">Maintenance</span></div>
+        </div>
+      </div>
+      <div class="svc-full-card reveal delay-1">
+        <div class="svc-full-icon"><i class="fas fa-star"></i></div>
+        <div class="svc-full-body">
+          <h3>Express Pedicure</h3>
+          <p>A shorter, focused version of our spa pedicure — perfect for a quick refresh between full appointments.</p>
+          <div class="svc-tags"><span class="tag">~45 min</span><span class="tag">Quick Visit</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HYGIENE BANNER -->
+<section class="section">
+  <div class="container">
+    <div class="hygiene-banner reveal">
+      <div>
+        <span class="label" style="color:rgba(255,255,255,0.7)">Our Commitment</span>
+        <h2>Hygiene is Non-Negotiable</h2>
+        <p>At Brown Luxury, cleanliness is not a feature — it is the foundation. Every visit is conducted in a spotless environment with the same rigour we'd expect for ourselves.</p>
+      </div>
+      <div class="hygiene-list">
+        <div class="hygiene-item"><i class="fas fa-check-circle"></i> All instruments sterilised between every client</div>
+        <div class="hygiene-item"><i class="fas fa-check-circle"></i> Single-use disposables where applicable</div>
+        <div class="hygiene-item"><i class="fas fa-check-circle"></i> Salon cleaned and sanitised daily</div>
+        <div class="hygiene-item"><i class="fas fa-check-circle"></i> Professional-grade disinfection products</div>
+        <div class="hygiene-item"><i class="fas fa-check-circle"></i> Medical-grade protocols for ingrown nails & skin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--dark);padding:80px 0;text-align:center">
+  <div class="container">
+    <span class="label" style="color:var(--gold-light)">Let's Begin</span>
+    <h2 class="section-title" style="color:var(--white);margin-bottom:18px">Ready to Book Your Treatment?</h2>
+    <p style="color:#aaa;margin-bottom:36px">Choose any service and let Dulce take care of the rest. Your feet deserve it.</p>
+    <a href="contact.html#book" class="btn btn-primary btn-lg">Book an Appointment</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-main">Brown Luxury</span><span class="logo-sub">Pedicure</span></a>
+        <p>A true paradise for your feet. Professional, highly hygienic, and meticulously detailed pedicure services in Berkel en Rodenrijs.</p>
+        <div class="socials">
+          <a href="https://instagram.com/brownluxurypedicure" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/31600000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Pages</h4><ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+        <li><a href="reviews.html"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Berkel en Rodenrijs, NL</a></li>
+        <li><a href="tel:+31600000000"><i class="fas fa-phone-alt"></i> +31 6 0000 0000</a></li>
+        <li><a href="mailto:info@brownluxury.nl"><i class="fas fa-envelope"></i> info@brownluxury.nl</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Hours</h4><ul>
+        <li><a href="#"><i class="far fa-clock"></i> Mon–Fri: 09:00–18:00</a></li>
+        <li><a href="#"><i class="far fa-clock"></i> Saturday: 10:00–15:00</a></li>
+        <li><a href="#"><i class="far fa-clock"></i> Sunday: Closed</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container"><p>© 2026 Brown Luxury Pedicure. All rights reserved.</p></div></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

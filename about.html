@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Dulce | Brown Luxury Pedicure</title>
+  <meta name="description" content="Meet Dulce Duque (Dulcelina), the expert behind Brown Luxury Pedicure. Learn about her story, philosophy, and unwavering commitment to foot care excellence.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Story Section ─── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .story-img {
+      position: relative;
+    }
+
+    .story-img img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .story-img-accent {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--gold-light);
+      border-radius: var(--radius);
+      z-index: -1;
+    }
+
+    .signature {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2rem;
+      color: var(--gold);
+      margin: 24px 0 0;
+    }
+
+    .story-text p { color: var(--muted); margin-bottom: 18px; font-size: 0.95rem; }
+
+    /* ── Values ─── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .value-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 44px 32px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .value-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+
+    .value-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--beige), var(--blush));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 22px;
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    .value-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+    .value-card p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── Timeline ─── */
+    .timeline { max-width: 700px; margin: 0 auto; }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 28px;
+      padding-bottom: 40px;
+      position: relative;
+    }
+
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 39px;
+      top: 48px;
+      width: 2px;
+      height: calc(100% - 20px);
+      background: linear-gradient(to bottom, var(--gold-light), transparent);
+    }
+
+    .timeline-year {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .timeline-body h4 { font-size: 1.3rem; margin-bottom: 8px; padding-top: 20px; }
+    .timeline-body p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── Certifications ─── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .cert-box {
+      background: var(--beige);
+      border-radius: var(--radius);
+      padding: 30px 20px;
+      text-align: center;
+      transition: var(--transition);
+      border-bottom: 3px solid transparent;
+    }
+
+    .cert-box:hover { border-color: var(--gold); background: var(--white); }
+    .cert-box i { font-size: 2rem; color: var(--gold); margin-bottom: 14px; }
+    .cert-box h4 { font-size: 1.1rem; margin-bottom: 6px; }
+    .cert-box p { font-size: 0.82rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-img img { height: 360px; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .certs-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar solid" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-main">Brown Luxury</span>
+      <span class="logo-sub">Pedicure · Berkel en Rodenrijs</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html#book" class="btn btn-primary">Book Now</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="drawer-overlay"></div>
+<aside class="mobile-drawer">
+  <button class="drawer-close"><i class="fas fa-times"></i></button>
+  <a href="index.html" class="logo"><span class="logo-main" style="color:var(--dark)">Brown Luxury</span><span class="logo-sub">Pedicure</span></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html#book" class="btn btn-primary">Book Appointment</a>
+</aside>
+
+<!-- PAGE HERO -->
+<div class="page-hero" style="background-image:url('https://i.ibb.co/0jpDyjK1/img-soak.jpg')">
+  <div class="page-hero-content">
+    <span class="label">Our Story</span>
+    <h1>About Brown Luxury</h1>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img reveal">
+        <div class="story-img-accent"></div>
+        <img src="https://i.ibb.co/fYDTh3Vb/img-salon.jpg" alt="Dulce Duque — Brown Luxury Pedicure">
+      </div>
+      <div class="story-text reveal delay-1">
+        <span class="label">Meet Dulcelina</span>
+        <h2 class="section-title">Your Personal Foot Care Expert</h2>
+        <p>Welcome to Brown Luxury, a premium pedicure salon in the heart of Berkel en Rodenrijs. The salon is owned and operated by Dulce Duque — affectionately known as Dulcelina — whose warm, caring approach and absolute professionalism have earned her a loyal following across South Holland.</p>
+        <p>Dulce's philosophy is simple: a pedicure should never be rushed, never be ordinary, and should always leave you feeling cared for. She brings over 15 years of hands-on expertise, combining medical knowledge with a genuine passion for beauty and wellness.</p>
+        <p>Every tool is sterilised. Every product is premium. Every client is treated like a valued guest. That is the Brown Luxury promise.</p>
+        <div class="signature">Dulcelina</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Our Philosophy</span>
+      <h2 class="section-title">What We Stand For</h2>
+      <div class="divider"><span></span><i class="fas fa-spa"></i><span></span></div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Uncompromising Hygiene</h3>
+        <p>Every instrument is sterilised between clients. We follow medical-grade hygiene protocols — not as a policy, but as a core belief.</p>
+      </div>
+      <div class="value-card reveal delay-1">
+        <div class="value-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Premium Products</h3>
+        <p>We use only the finest professional-grade products — from nail care to hydration treatments — for results that truly last.</p>
+      </div>
+      <div class="value-card reveal delay-2">
+        <div class="value-icon"><i class="fas fa-heart"></i></div>
+        <h3>Genuine Care</h3>
+        <p>We take time to understand each client's unique needs. Every detail matters — from how we hold your foot to the music playing softly in the background.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">The Journey</span>
+      <h2 class="section-title">How It All Began</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-year">2008</div>
+        <div class="timeline-body">
+          <h4>A Passion is Born</h4>
+          <p>Dulce begins her professional training in foot care and pedicure therapy, discovering her talent for precision and her deep commitment to client comfort.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal delay-1">
+        <div class="timeline-year">2013</div>
+        <div class="timeline-body">
+          <h4>Medical Expertise Deepens</h4>
+          <p>After years in practice, Dulce expands into medical pedicure — learning to treat complex foot conditions with the same elegance she brings to every treatment.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal delay-2">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-body">
+          <h4>Brown Luxury Opens Its Doors</h4>
+          <p>Brown Luxury Pedicure opens in Berkel en Rodenrijs — a sanctuary where luxury meets health, and every client is welcomed as a guest.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-year">Now</div>
+        <div class="timeline-body">
+          <h4>A 5-Star Community Favourite</h4>
+          <p>With hundreds of happy clients and a perfect Google rating, Brown Luxury continues to grow — one beautiful pair of feet at a time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section bg-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">Credentials</span>
+      <h2 class="section-title">Expertise You Can Trust</h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-box reveal">
+        <i class="fas fa-certificate"></i>
+        <h4>Certified Pedicurist</h4>
+        <p>Professional-grade pedicure certification with ongoing continuing education.</p>
+      </div>
+      <div class="cert-box reveal delay-1">
+        <i class="fas fa-stethoscope"></i>
+        <h4>Medical Pedicure</h4>
+        <p>Specialist training in treating foot conditions, ingrown nails, and callus management.</p>
+      </div>
+      <div class="cert-box reveal delay-2">
+        <i class="fas fa-spray-can"></i>
+        <h4>Gel & Nail Art</h4>
+        <p>Advanced qualification in gel application, removal, and decorative nail techniques.</p>
+      </div>
+      <div class="cert-box reveal delay-3">
+        <i class="fas fa-hand-sparkles"></i>
+        <h4>Reflexology Training</h4>
+        <p>Trained in foot reflexology and deep tissue massage techniques for holistic wellness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--dark);padding:80px 0;text-align:center">
+  <div class="container">
+    <span class="label" style="color:var(--gold-light)">Come Experience It</span>
+    <h2 class="section-title" style="color:var(--white);margin-bottom:18px">Ready to Meet Dulce?</h2>
+    <p style="color:#aaa;margin-bottom:36px">Book your first appointment and discover why so many clients keep coming back.</p>
+    <a href="contact.html#book" class="btn btn-primary btn-lg">Book Your Appointment</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-main">Brown Luxury</span><span class="logo-sub">Pedicure</span></a>
+        <p>A true paradise for your feet. Professional, highly hygienic, and meticulously detailed pedicure services in Berkel en Rodenrijs.</p>
+        <div class="socials">
+          <a href="https://instagram.com/brownluxurypedicure" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/31600000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Pages</h4><ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+        <li><a href="reviews.html"><i class="fas fa-chevron-right"></i> Reviews</a></li>
+        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Berkel en Rodenrijs, NL</a></li>
+        <li><a href="tel:+31600000000"><i class="fas fa-phone-alt"></i> +31 6 0000 0000</a></li>
+        <li><a href="mailto:info@brownluxury.nl"><i class="fas fa-envelope"></i> info@brownluxury.nl</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Hours</h4><ul>
+        <li><a href="#"><i class="far fa-clock"></i> Mon–Fri: 09:00–18:00</a></li>
+        <li><a href="#"><i class="far fa-clock"></i> Saturday: 10:00–15:00</a></li>
+        <li><a href="#"><i class="far fa-clock"></i> Sunday: Closed</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container"><p>© 2026 Brown Luxury Pedicure. All rights reserved.</p></div></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
